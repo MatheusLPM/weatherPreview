@@ -1,0 +1,306 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+
+$color-1: #E0E0E0;
+$color-2: #CECECE;
+$color-3: #c9c9c9;
+$color-4: #f45454;
+
+
+@mixin centralizar(){
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+
+    width: 100vw;
+    height: 100vh;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(to right, $color-2, #fff);
+    @include centralizar();
+}
+
+#container{
+    
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+
+}
+
+#logo{
+
+
+    font-size: 8rem;
+    color: $color-4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: flutuation 2s linear infinite alternate;
+
+}
+
+
+#temp-container{
+
+    width: 25rem;
+    border-radius: 30px;
+    box-shadow: 0.4rem 0.4rem 1.5rem ($color-3) ,
+    -0.4rem -0.4rem 1.5rem white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-block: 2rem;
+    gap: 2rem;
+
+}
+
+.search{
+
+    height: 5rem;
+    width: 90%;
+    justify-content: space-evenly;
+    gap: 1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0.5rem;
+
+    
+}
+
+.search button{
+
+    min-width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    background: transparent;
+    font-size: 1.5rem;
+    color: grey;
+    box-shadow: 0.2rem 0.2rem 0.8rem ($color-3),
+    -0.2rem -0.2rem 0.8rem white;
+    @include centralizar();
+    border: none;
+
+}
+
+.search button:hover{
+    cursor: pointer;
+    color: $color-4;
+}
+
+.search button:active{
+
+    box-shadow: inset 0.2rem 0.2rem 0.8rem $color-2,
+    inset -0.2rem -0.2rem 0.8rem white;
+    color: $color-4;
+
+}
+
+.search input{
+    
+    height: 3rem;
+    width: 90%;
+    min-width: 12rem;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    background: transparent;
+    border-radius: 0.5rem;
+    box-shadow: 0.2rem 0.2rem 0.8rem ($color-3),
+    -0.2rem -0.2rem 0.8rem white;
+    padding-left: 1rem;
+    color: #f45454;
+    border: none;
+
+}
+
+::placeholder{
+
+    color:grey;
+
+}
+
+.search input:focus{
+
+    box-shadow: inset 0.2rem 0.2rem 0.8rem $color-2,
+    inset -0.2rem -0.2rem 0.8rem white;
+    outline: none;
+    font-weight: 600;
+    
+}
+
+.content{
+
+    width: 90%;
+    flex-direction: column;
+    gap: 2rem;
+    padding-block: 2rem;
+    display: none;
+    animation: reveal 5s;
+
+}
+.name-city{
+
+    font-size: 2rem;
+    padding-left: 0.5rem;
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    color: $color-4;
+    font-weight: 600;
+
+}
+.info{
+
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 3rem;
+
+}
+
+.temp{
+
+
+    width: 100%;
+    height: 5rem;
+    display: flex;
+    @include centralizar();
+
+
+}
+
+.temp span{
+
+    width: 2rem;
+    font-size: 2rem;
+    color: grey;
+
+}
+
+.temp p{
+
+    width: 15rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: 500;
+    color: $color-4;
+    font-size: 3rem;
+
+}
+
+.valor{
+
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.weather{
+
+
+    width: 100%;
+    font-weight: 600;
+    color: $color-4;
+    font-size: 1.5rem;
+    padding-left: 0.5rem;
+    text-transform: capitalize;
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
+
+}
+.weather span:nth-child(1) img{
+    width: 3rem;
+    height: 3rem;
+    animation: flutuation 2s linear infinite alternate;
+}
+
+.weather span{
+    @include centralizar();
+}
+
+.temp-image{
+
+    @include centralizar();
+    width: 10rem;
+    height: 10rem;
+    border-radius: 1rem;
+    color: $color-4;
+    animation: flutuation 2s linear infinite alternate;
+
+}
+
+@keyframes flutuation{
+
+    0% {
+        transform: translateY(5px);
+
+    }
+    100%{
+        transform: translateY(-5px);
+
+    }
+
+}
+
+@keyframes reveal{
+
+    0%{ 
+        opacity: 0;
+
+    }
+    100%{
+
+        opacity: 1;
+
+    }
+
+}
+
+
+@media(max-width: 600px){
+
+    #temp-container{
+
+        box-shadow: none;
+
+    }
+
+    .info{
+        display: flex;
+        flex-direction: column;
+    }
+/*
+    #logo{
+        display: none;
+    }
+*/
+    .valor{
+
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+
+    }
+
+}
