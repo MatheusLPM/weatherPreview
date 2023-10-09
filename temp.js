@@ -59,11 +59,18 @@ button.addEventListener('click', (buttonClick) = () =>{
     const display = document.querySelector('.content')
     const logo = document.querySelector('#logo')
 
-    searchCity(input)
+    console.log(input)
 
-    logo.style.display = 'none'
-    display.style.display ='flex'
+    if(input == " "){
+        document.querySelector('.text-image').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
+        return 0
 
+    }else{
+        searchCity(input)
+
+        logo.style.display = 'none'
+        display.style.display ='flex'
+    }
 
 })
 
