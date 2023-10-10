@@ -27,11 +27,11 @@ body {
 
 #logo {
   font-size: 8rem;
-  color: #f45454;
+  color: #F45454;
   display: flex;
   align-items: center;
   justify-content: center;
-  animation: flutuation 2s linear infinite alternate;
+  animation: flutuation 2s ease-in-out infinite alternate;
 }
 
 #temp-container {
@@ -144,7 +144,6 @@ body {
   display: flex;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .temp span {
@@ -156,7 +155,6 @@ body {
 .temp p {
   width: 15rem;
   display: flex;
-  justify-content: center;
   align-items: center;
   font-weight: 500;
   color: #f45454;
@@ -184,7 +182,7 @@ body {
 .weather span:nth-child(1) img {
   width: 3rem;
   height: 3rem;
-  animation: flutuation 2s linear infinite alternate;
+  animation: flutuation 2s ease-in-out infinite alternate;
 }
 
 .weather span {
@@ -201,7 +199,11 @@ body {
   height: 10rem;
   border-radius: 1rem;
   color: #f45454;
-  animation: flutuation 2s linear infinite alternate;
+  animation: flutuation 2s ease-in-out infinite alternate;
+}
+
+.display-revel {
+  animation: reveal 5s;
 }
 
 @keyframes flutuation {

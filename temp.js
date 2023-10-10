@@ -45,11 +45,38 @@ function displayData(data){
 
 async function searchCity(cidade){
 
+    console.log(cidade)
+    const display = document.querySelector('.info')
+    const weather = document.querySelector('.weather')
 
-    const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`).then(result => result.json())
+    try {
 
-    displayData(data)
-    console.log(data)
+        if(cidade == ""){
+
+            document.querySelector('.name-city').innerHTML = `Região vazia`
+            display.style.display = 'none'
+            weather.style.display = 'none'
+            console.log(true)
+            return 0
+    
+        }else{
+    
+            const data = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${key}&lang=pt_br&units=metric`).then(result => result.json())
+
+            display.style.animation = 'reveal 5s'
+            display.style.display = 'flex'
+            weather.style.display = 'flex'
+            displayData(data)
+            console.log(data)
+        }
+
+    } catch (error) {
+
+        document.querySelector('.name-city').innerHTML = `Não encontrado`
+        display.style.display = 'none'
+        weather.style.display = 'none'
+
+    }
 
 }
 
@@ -59,19 +86,11 @@ button.addEventListener('click', (buttonClick) = () =>{
     const display = document.querySelector('.content')
     const logo = document.querySelector('#logo')
 
-    console.log(input)
+    searchCity(input)
 
-    if(input == " "){
-        document.querySelector('.text-image').src = `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
-        return 0
-
-    }else{
-        searchCity(input)
-
-        logo.style.display = 'none'
-        display.style.display ='flex'
-    }
-
+    logo.style.display = 'none'
+    display.style.display ='flex'
+    
 })
 
 

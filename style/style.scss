@@ -42,17 +42,14 @@ body{
 
 }
 
-#logo{
-
-
+#logo {
     font-size: 8rem;
-    color: $color-4;
+    color: #F45454;
     display: flex;
     align-items: center;
     justify-content: center;
-    animation: flutuation 2s linear infinite alternate;
-
-}
+    animation: flutuation 2s ease-in-out infinite alternate;
+  }
 
 
 #temp-container{
@@ -182,8 +179,8 @@ body{
     width: 100%;
     height: 5rem;
     display: flex;
-    @include centralizar();
-
+    display: flex;
+    justify-content: center;
 
 }
 
@@ -192,14 +189,12 @@ body{
     width: 2rem;
     font-size: 2rem;
     color: grey;
-
 }
 
 .temp p{
 
     width: 15rem;
     display: flex;
-    justify-content: center;
     align-items: center;
     font-weight: 500;
     color: $color-4;
@@ -232,7 +227,7 @@ body{
 .weather span:nth-child(1) img{
     width: 3rem;
     height: 3rem;
-    animation: flutuation 2s linear infinite alternate;
+    animation: flutuation 2s ease-in-out infinite alternate;
 }
 
 .weather span{
@@ -246,8 +241,12 @@ body{
     height: 10rem;
     border-radius: 1rem;
     color: $color-4;
-    animation: flutuation 2s linear infinite alternate;
+    animation: flutuation 2s ease-in-out infinite alternate;
 
+}
+
+.display-revel{
+    animation: reveal 5s;
 }
 
 @keyframes flutuation{
